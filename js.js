@@ -1,6 +1,6 @@
 
 
-function getComptuterChoice() {
+function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3) + 1;
     switch (computerChoice) {
         case 1:
@@ -13,7 +13,7 @@ function getComptuterChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
+    if (playerSelection.toLowerCase() == computerSelection) {
         console.log(`It's a tie!`)
     }
     if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'scissors') {
@@ -37,6 +37,9 @@ function playRound(playerSelection, computerSelection) {
     console.log(playerSelection, computerSelection);
 }
 
-const computerSelection = getComptuterChoice();
-let playerSelection = 'rock'
+function getPlayerSelection() {
+    return prompt('Rock paper scissors!')
+}
+
+playRound(getPlayerSelection(), getComputerChoice());
 
