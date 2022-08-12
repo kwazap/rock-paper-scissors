@@ -47,23 +47,23 @@ function getPlayerSelection() {
     return prompt('Rock paper scissors!')
 }
 
-function game() {
-    let wins = 0;
-    let losses = 0;
-    let i = 0;
-    while (i < 5) {
-        console.log(`start ${i}`);
-        let result = playRound(getPlayerSelection(), getComputerChoice());
-        console.log(result);
-        if (result == 1) {
-            wins++;
-            i++;
-        } else if (result == -1) {
-            losses++;
-            i++;
-        };
-    }
-    console.log(`Final score: ${wins} wins and ${losses} losses`)
-}
+// function game() {
+//     let wins = 0;
+//     let losses = 0;
+//     let i = 0;
+//     while (i < 5) {
+//         console.log(`start ${i}`);
+//         let result = playRound(getPlayerSelection(), getComputerChoice());
+//         console.log(result);
+//         if (result == 1) {
+//             wins++;
+//             i++;
+//         } else if (result == -1) {
+//             losses++;
+//             i++;
+//         };
+//     }
+//     console.log(`Final score: ${wins} wins and ${losses} losses`)
+// }
 
 
