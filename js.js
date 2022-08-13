@@ -43,8 +43,23 @@ function playRound(playerSelection, computerSelection) {
 
 function getPlayerSelection(e) {
     let playerChoice = this.className;
-    console.log(playRound(playerChoice, getComputerChoice()))
+    console.log(playRound(playerChoice, getComputerChoice()));
 }
+
+function gameEnd(state) {
+    if (state) {
+        endGameTitle.textContent = "Your victory is temporary";
+    } else {
+        endGameTitle.textContent = "Vanquished";
+    }
+}
+
+function gameReset() {
+    endGameTitle.textContent = "Choose your hand";
+}
+
+const endGameTitle = document.querySelector('.section2-title');
+const middleButton = document.querySelector('.paper');
 
 document.querySelectorAll('button').forEach(button => button.addEventListener('click', getPlayerSelection));
 
