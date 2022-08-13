@@ -2,15 +2,38 @@ function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3) + 1;
     switch (computerChoice) {
         case 1:
-            return 'rock'
+            return 'rock';
         case 2:
-            return 'paper'
+            return 'paper';
         case 3:
-            return 'scissors'
+            return 'scissors';
     }
 }
 
 function playRound(playerSelection, computerSelection) {
+    console.log(playerSelection, computerSelection, "AAAAAAAAAAAAAAAAAA");
+    switch (playerSelection.toLowerCase()) {
+        case 'rock':
+            playerMove.textContent = "✊";
+            break;
+        case 'paper':
+            playerMove.textContent = "✋";
+            break;
+        case 'scissors':
+            playerMove.textContent = "✌️";
+            break;
+    }
+    switch (computerSelection) {
+        case 'rock':
+            floppaMove.textContent = "✊";
+            break;
+        case 'paper':
+            floppaMove.textContent = "✋";
+            break;
+        case 'scissors':
+            floppaMove.textContent = "✌️";
+            break;
+    }
     if (playerSelection.toLowerCase() == computerSelection) {
         console.log(`It's a tie!`)
         return 0;
@@ -43,7 +66,7 @@ function playRound(playerSelection, computerSelection) {
 
 function getPlayerSelection(e) {
     let playerChoice = this.classList[0];
-    console.log(playRound(playerChoice, getComputerChoice()));
+    //console.log(playRound(playerChoice, getComputerChoice()));
     let roundResult = playRound(playerChoice, getComputerChoice());
     if (roundResult == 1) {
         playerScore.textContent = Number(playerScore.textContent) + 1;
@@ -86,6 +109,8 @@ const floppaScore = document.querySelector('.score-floppa');
 const buttons = document.querySelectorAll('.choice');
 const newGameButton = document.querySelector('.new-game');
 const choiceButtonSection = document.querySelector('.button-section');
+const floppaMove = document.querySelector('.last-move-floppa');
+const playerMove = document.querySelector('.last-move-player');
 
 buttons.forEach(button => button.addEventListener('click', getPlayerSelection));
 newGameButton.addEventListener('click', newGame);
