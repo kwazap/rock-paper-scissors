@@ -83,7 +83,7 @@ img {
     margin-bottom: 8px;
 }
 
-button {
+.choice {
     font-size: 96px;
 }
 
@@ -91,4 +91,10 @@ button {
 .score-player{
     font-size: 64px;
     text-align: center;
+}
+
+.new-game {
+    font-size: 36px;
+    padding: 16px 6px;
+    display: none;
 }

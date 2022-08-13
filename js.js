@@ -42,26 +42,46 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function getPlayerSelection(e) {
-    let playerChoice = this.className;
+    let playerChoice = this.classList[0];
     console.log(playRound(playerChoice, getComputerChoice()));
+    let roundResult = playRound(playerChoice, getComputerChoice());
+    if (roundResult == 1) {
+        playerScore.textContent = Number(playerScore.textContent) + 1;
+        if (playerScore.textContent == 5) {
+            gameEnd(1);
+        }
+    } else if (roundResult == -1) {
+        floppaScore.textContent = Number(floppaScore.textContent) + 1;
+        if (floppaScore.textContent == 5) {
+            gameEnd(0);
+        }
+    }
 }
 
 function gameEnd(state) {
     if (state) {
-        endGameTitle.textContent = "Your victory is temporary";
+        endGameTitle.textContent = "Your victory is temporary and your time finite";
     } else {
         endGameTitle.textContent = "Vanquished";
     }
+    buttons.forEach(button => button.style.display = "none");
+
+
 }
 
 function newGame() {
     endGameTitle.textContent = "Choose your hand";
+    playerScore.textContent = 0;
+    floppaScore.textContent = 0;
 }
 
 const endGameTitle = document.querySelector('.section2-title');
 const middleButton = document.querySelector('.paper');
+const playerScore = document.querySelector('.score-player');
+const floppaScore = document.querySelector('.score-floppa');
+const buttons = document.querySelectorAll('button');
 
-document.querySelectorAll('button').forEach(button => button.addEventListener('click', getPlayerSelection));
+buttons.forEach(button => button.addEventListener('click', getPlayerSelection));
 
 
 // function game() {
