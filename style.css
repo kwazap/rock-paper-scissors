@@ -98,3 +98,7 @@ img {
     padding: 16px 6px;
     display: none;
 }
+
+.button-section {
+    display: flex;
+}

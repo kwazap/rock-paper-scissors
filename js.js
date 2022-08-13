@@ -65,6 +65,8 @@ function gameEnd(state) {
         endGameTitle.textContent = "Vanquished";
     }
     buttons.forEach(button => button.style.display = "none");
+    newGameButton.style.display = "flex";
+
 
 
 }
@@ -73,16 +75,20 @@ function newGame() {
     endGameTitle.textContent = "Choose your hand";
     playerScore.textContent = 0;
     floppaScore.textContent = 0;
+    newGameButton.style.display = "none";
+    buttons.forEach(button => button.style.display = "block");
 }
 
 const endGameTitle = document.querySelector('.section2-title');
 const middleButton = document.querySelector('.paper');
 const playerScore = document.querySelector('.score-player');
 const floppaScore = document.querySelector('.score-floppa');
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('.choice');
+const newGameButton = document.querySelector('.new-game');
+const choiceButtonSection = document.querySelector('.button-section');
 
 buttons.forEach(button => button.addEventListener('click', getPlayerSelection));
-
+newGameButton.addEventListener('click', newGame);
 
 // function game() {
 //     let wins = 0;
