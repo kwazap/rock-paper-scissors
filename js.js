@@ -126,6 +126,8 @@ function newGame() {
     buttons.forEach(button => button.style.display = "block");
     floppaMove.textContent = '';
     playerMove.textContent = '';
+    playerMoveFrame.className = 'last-move default';
+    floppaMoveFrame.className = 'last-move default';
 }
 
 const endGameTitle = document.querySelector('.section2-title');
