@@ -1,5 +1,3 @@
-
-
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3) + 1;
     switch (computerChoice) {
@@ -43,9 +41,13 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function getPlayerSelection() {
-    return prompt('Rock paper scissors!')
+function getPlayerSelection(e) {
+    let playerChoice = this.className;
+    console.log(playRound(playerChoice, getComputerChoice()))
 }
+
+document.querySelectorAll('button').forEach(button => button.addEventListener('click', getPlayerSelection));
+
 
 // function game() {
 //     let wins = 0;
