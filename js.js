@@ -73,6 +73,7 @@ function getPlayerSelection(e) {
     let playerChoice = this.classList[0];
     //console.log(playRound(playerChoice, getComputerChoice()));
     let roundResult = playRound(playerChoice, getComputerChoice());
+    updateMoveFrame(roundResult);
     if (roundResult == 1) {
         playerScore.textContent = Number(playerScore.textContent) + 1;
         if (playerScore.textContent == 5) {
@@ -83,6 +84,24 @@ function getPlayerSelection(e) {
         if (floppaScore.textContent == 5) {
             gameEnd(0);
         }
+    }
+}
+
+function updateMoveFrame(roundResult) {
+    console.log(playerMoveFrame)
+    switch (roundResult) {
+        case 1:
+            playerMoveFrame.className='last-move win';
+            floppaMoveFrame.className='last-move lose';
+            break;
+        case -1:
+            playerMoveFrame.className='last-move lose';
+            floppaMoveFrame.className='last-move win';
+            break;
+        case 0:
+            playerMoveFrame.className='last-move tie';
+            floppaMoveFrame.className='last-move tie';
+            break;
     }
 }
 
@@ -118,6 +137,8 @@ const newGameButton = document.querySelector('.new-game');
 const choiceButtonSection = document.querySelector('.button-section');
 const floppaMove = document.querySelector('.last-move-floppa');
 const playerMove = document.querySelector('.last-move-player');
+const floppaMoveFrame = floppaMove.parentElement;
+const playerMoveFrame = playerMove.parentElement;
 
 buttons.forEach(button => button.addEventListener('click', getPlayerSelection));
 newGameButton.addEventListener('click', newGame);
