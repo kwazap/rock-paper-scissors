@@ -54,7 +54,7 @@ function gameEnd(state) {
     }
 }
 
-function gameReset() {
+function newGame() {
     endGameTitle.textContent = "Choose your hand";
 }
 
