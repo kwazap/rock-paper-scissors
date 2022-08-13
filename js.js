@@ -11,29 +11,9 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    console.log(playerSelection, computerSelection, "AAAAAAAAAAAAAAAAAA");
-    switch (playerSelection.toLowerCase()) {
-        case 'rock':
-            playerMove.textContent = "✊";
-            break;
-        case 'paper':
-            playerMove.textContent = "✋";
-            break;
-        case 'scissors':
-            playerMove.textContent = "✌️";
-            break;
-    }
-    switch (computerSelection) {
-        case 'rock':
-            floppaMove.textContent = "✊";
-            break;
-        case 'paper':
-            floppaMove.textContent = "✋";
-            break;
-        case 'scissors':
-            floppaMove.textContent = "✌️";
-            break;
-    }
+
+    updateMoves(playerSelection, computerSelection);
+
     if (playerSelection.toLowerCase() == computerSelection) {
         console.log(`It's a tie!`)
         return 0;
@@ -61,6 +41,31 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection.toLowerCase() == 'scissors' && computerSelection == 'rock') {
         console.log(`You lose! Rock beats scissors`)
         return -1;
+    }
+}
+
+function updateMoves(playerSelection, computerSelection) {
+    switch (playerSelection) {
+        case 'rock':
+            playerMove.textContent = "✊";
+            break;
+        case 'paper':
+            playerMove.textContent = "✋";
+            break;
+        case 'scissors':
+            playerMove.textContent = "✌️";
+            break;
+    }
+    switch (computerSelection) {
+        case 'rock':
+            floppaMove.textContent = "✊";
+            break;
+        case 'paper':
+            floppaMove.textContent = "✋";
+            break;
+        case 'scissors':
+            floppaMove.textContent = "✌️";
+            break;
     }
 }
 
@@ -100,6 +105,8 @@ function newGame() {
     floppaScore.textContent = 0;
     newGameButton.style.display = "none";
     buttons.forEach(button => button.style.display = "block");
+    floppaMove.textContent = '';
+    playerMove.textContent = '';
 }
 
 const endGameTitle = document.querySelector('.section2-title');
